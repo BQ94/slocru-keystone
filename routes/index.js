@@ -38,6 +38,7 @@ function addApiRoutes(app, name, route) {
 	app.get('/api/' + name + '/:id', keystone.middleware.api, route.get);
 	app.all('/api/' + name + '/find', keystone.middleware.api, route.find);
 	app.all('/api/' + name + '/create', keystone.middleware.api, route.create); //TODO: take this out	
+    app.all('/api/' + name + '/update', keystone.middleware.api, route.update);
 }
 
 // Setup Route Bindings
@@ -45,11 +46,14 @@ exports = module.exports = function(app) {
 	
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
-	app.get('/gallery', routes.views.gallery);
-	app.all('/contact', routes.views.contact);
-	
+	// app.get('/blog/:category?', routes.views.blog);
+	// app.get('/blog/post/:post', routes.views.post);
+	// app.get('/gallery', routes.views.gallery);
+	// app.all('/contact', routes.views.contact);
+    app.get('/notifications', routes.views.notifications);
+    app.get('/notifications/renderScheduledNotifications', routes.views.notifications.renderScheduledNotifications);
+    app.all('/notifications/renderEventNotifications', routes.views.notifications.renderEventNotifications);
+    app.all('/notifications/renderEventNotificationTable', routes.views.notifications.renderEventNotificationTable);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 	
@@ -61,6 +65,16 @@ exports = module.exports = function(app) {
 	addApiRoutes(app, 'post', routes.api.post);	
 	addApiRoutes(app, 'postcategory', routes.api.postcategory);	
 	addApiRoutes(app, 'event', routes.api.event);	
-	addApiRoutes(app, 'gallery', routes.api.gallery);	
+	addApiRoutes(app, 'gallery', routes.api.gallery);
 	addApiRoutes(app, 'user', routes.api.user);	
+    addApiRoutes(app, 'communitygroup', routes.api.communitygroup);
+    addApiRoutes(app, 'ride', routes.api.ride);	
+    addApiRoutes(app, 'resource', routes.api.resource);	
+    addApiRoutes(app, 'resourcetag', routes.api.resourcetag);	
+    app.all('/api/ride/addPassenger', keystone.middleware.api, routes.api.ride.addPassenger);
+    app.all('/api/ride/dropPassenger', keystone.middleware.api, routes.api.ride.dropPassenger);
+    addApiRoutes(app, 'passenger', routes.api.passenger);	
+    addApiRoutes(app, 'notification', routes.api.notification);	
+    app.all('/api/notification/push', keystone.middleware.api, routes.api.notification.push);
+    app.all('/api/notification/addEventNotification', keystone.middleware.api, routes.api.notification.addEventNotification);
 };

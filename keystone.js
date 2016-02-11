@@ -1,8 +1,6 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
-if (process.env.NODE_ENV === 'development') {
-	require('dotenv').load();
-}
+require('dotenv').load();
 
 // Require keystone
 var keystone = require('keystone');
@@ -15,12 +13,15 @@ keystone.init({
 
 	'name': 'crucentralcoast.com',
 	'brand': 'Cru Central Coast',
+    'port' : 3001,
+	'brand': 'Cru Central Coast Admin Panel',
 
 	'stylus': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
+	'less': 'public',
 
 	'emails': 'templates/emails',
 
@@ -33,7 +34,7 @@ keystone.init({
 	'auth': true,
 	'session store': 'mongo',
 	'cookie secret': process.env.COOKIE_SECRET,
-	'user model': 'User'
+	'user model': 'User',
 
 });
 
@@ -96,6 +97,7 @@ keystone.set('email tests', require('./routes/emails'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
+<<<<<<< HEAD
   'campuses': 'campus',
 //  'community-groups': 'community-groups'
 	'events': 'events',
@@ -104,6 +106,12 @@ keystone.set('nav', {
 	'ministry-teams': 'ministry-teams',
 	'resources': ['resources', 'resource-tags'],
 	'summer-missions': 'summer-missions'
+=======
+	'users': 'users',
+	'notifications' : 'notifications',
+    'ride sharing' : ['rides', 'passengers'],
+    'data' : ['campus', 'ministries', 'events', 'ministry-teams', 'resources', 'resource-tags', 'summer-missions', 'community-groups']
+>>>>>>> dev
 });
 
 // Start Keystone to connect to your database and initialise the web server

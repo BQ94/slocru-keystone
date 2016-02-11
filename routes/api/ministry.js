@@ -25,3 +25,7 @@ exports.create = function(req, res) {
 	restUtils.create(model, req, res);
 }
 
+//updates a ministry
+exports.update = function(req, res) {
+    restUtils.update(model, req, res);
+}
