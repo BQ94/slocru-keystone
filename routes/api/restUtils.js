@@ -84,5 +84,14 @@ module.exports = {
             });
 		
         });
+    },
+
+    delete : function(model, req, res) {
+        var query = model.delete();
+        query.exec(function(err, items) {
+            if (err) return res.apiError('database error', err);
+
+            res.apiResponse(items);
+        });
     }
 }
