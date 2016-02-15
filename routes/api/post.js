@@ -21,3 +21,6 @@ exports.create = function(req, res) {
 	restUtils.create(model, req, res);
 }
 
+exports.update = function(req, res) {
+    restUtils.update(model, req, res);
+}
