@@ -104,7 +104,7 @@ keystone.set('nav', {
 	'ministries': 'ministries',
 	'ministry-teams': 'ministry-teams',
 	'resources': ['resources', 'resource-tags'],
-	'summer-missions': 'summer-missions'
+	'summer-missions': 'summer-missions',
 	'users': 'users',
 	'notifications' : 'notifications',
     'ride sharing' : ['rides', 'passengers'],

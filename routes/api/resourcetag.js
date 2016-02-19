@@ -2,8 +2,8 @@ var async = require('async'),
 	keystone = require('keystone'),
 	restUtils = require('./restUtils');
 
-var Resource = keystone.list("ResourceTag");
-var model = resource.model;
+var ResourceTag = keystone.list("ResourceTag");
+var model = ResourceTag.model;
 
 // lists all resource tags
 exports.list = function(req, res) {

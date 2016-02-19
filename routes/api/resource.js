@@ -3,7 +3,7 @@ var async = require('async'),
 	restUtils = require('./restUtils');
 
 var Resource = keystone.list("Resource");
-var model = resource.model;
+var model = Resource.model;
 
 // lists all resources
 exports.list = function(req, res) {
