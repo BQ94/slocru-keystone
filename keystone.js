@@ -13,8 +13,11 @@ keystone.init({
 
 	'name': 'crucentralcoast.com',
 	'brand': 'Cru Central Coast',
+<<<<<<< HEAD
     'port' : 3001,
 	'brand': 'Cru Central Coast Admin Panel',
+=======
+>>>>>>> andrew/capstone
 
 	'stylus': 'public',
 	'static': 'public',
