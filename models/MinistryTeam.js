@@ -16,6 +16,8 @@ MinistryTeam.add({
 	description: { type: Types.Textarea, initial: true },
 	leadersImage: { type: Types.CloudinaryImage },
 	logoImage: { type: Types.CloudinaryImage },
+	image: { type: Types.CloudinaryImage },
+    teamImage: {type: Types.CloudinaryImage },
 	parentMinistry: { type: Types.Relationship, ref: 'Ministry', required: true, initial: true }
 });
 
