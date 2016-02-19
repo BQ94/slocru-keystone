@@ -21,10 +21,6 @@ exports.get = function(req, res) {
 	restUtils.get(model, req, res);
 }
 
-exports.delete = function(req, res) {
-    restUtil.delete(model, req, res);
-}
-
 exports.find = function(req, res) {
         restUtils.find(model, req, res);
 }
